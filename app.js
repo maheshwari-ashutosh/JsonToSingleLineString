@@ -2,8 +2,13 @@ const argv = require('yargs').argv;
 const fs = require('fs');
 
 const inputFile = argv.input;
+const outputFile = argv.output;
 if (!inputFile) {
   throw new Error('Please provide input file');
+}
+
+if (!outputFile) {
+  throw new Error('Please provide output file');
 }
 
 const inputText = fs.readFileSync(inputFile).toString();
@@ -29,5 +34,4 @@ strArr.forEach((char, idx) => {
   }
 });
 
-const outputFile = argv.output;
 fs.writeFileSync(outputFile, outText);
